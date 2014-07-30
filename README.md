@@ -171,14 +171,55 @@ __Create a file directives3.html.__
 
 ```
 
-
 This will create an object literal, data, that is seen in the view. The data.name is shown if you are logged in. Otherwise show a red login.
 
-## Lab 
+## Lab 2
 
 Change the _"data"__ object literal so that:  
 * Input fields are hidden.  
 * User is logged in.  
+
+
+## Demo
+
+### ng-repeat
+
+This will create an Array of people that contains an object literal for each person.
+
+We want to iterate over this people Array and __repeat__ some markup that will show each person.
+
+__Create a file directives_repeat.html.__
+
+```
+<!document html>
+<html ng-app>
+  <head>
+    <script type='text/javascript' src='js/angular.js'></script>
+  </head>
+  <body>
+    <div ng-init="people=[{name: 'Tom', city:'Groton'}, {name: 'Mike',
+    city: 'Tewksbury'}, {name: 'Joe', city: 'Derry'}, {name: 'Ed',city:'Portland'}]">
+      <h3>Iterating through data with ng-repeat</h3>
+      <ul>
+        <li ng-repeat="person in people">{{person.name}} lives in {{person.city}}</li>
+      </ul>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+        <tr ng-repeat="person in people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.city}}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
+
+```
+
+* ng-repeat - This directive instantiates a _template_ once per item from a collection.
 
 
 ## Documentation
