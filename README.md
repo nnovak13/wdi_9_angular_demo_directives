@@ -184,7 +184,7 @@ Change the _"data"__ object literal so that:
 
 ### ng-repeat
 
-This will create an Array of people that contains an object literal for each person.
+This will create an Array of people that contains an object literal for each person. _This will emulate an Array that we get from an API using Ajax_.
 
 We want to iterate over this people Array and __repeat__ some markup that will show each person.
 
@@ -219,7 +219,21 @@ __Create a file directives_repeat.html.__
 
 ```
 
-* ng-repeat - This directive instantiates a _template_ once per item from a collection.
+* ng-repeat - Add ng-repeat directive to the HTML element you want to repeat. Once for each member of a collection.
+
+Here we are repeating a list element and a table row for each person in the people Array.
+
+
+## Lab 
+Create  a list of products and generate a table for each product. 
+
+## Demo
+
+#### Filters
+
+Filters can be used to format data, convert it to json, limit the number of items to show, upcase or lower case a string or order data in a collection.
+
+
 
 
 ## Documentation
