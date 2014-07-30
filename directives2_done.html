@@ -1,0 +1,22 @@
+<html data-ng-app>
+  <head>
+    <script type="text/javascript" src='js/angular.js'> </script>
+  </head>
+  <!-- initialize name attribute to the value 'James' -->
+  <body data-ng-init="name='James'">
+
+    <!-- Bind hide to the isHidden property -->
+    <div data-ng-hide="isHidden">
+      <input type='text' data-ng-model="name" placeholder="Enter name"/>
+      <p> Name's value is: {{name}}</p>
+    </div>
+
+    <!-- Toggle the isHidden property between true and false -->
+    Hide: <input type='checkbox' data-ng-model="isHidden"/>
+    <br/>
+    <!-- Set the name property to Mortimer -->
+    <button data-ng-click="name='Mortimer'">Change Name</button>
+
+    <script type='text/javascript' src='js/angular.js'></script>
+  </body>
+</html>

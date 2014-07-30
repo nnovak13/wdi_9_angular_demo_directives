@@ -1,0 +1,26 @@
+<!document html>
+<html ng-app>
+  <head>
+    <script type='text/javascript' src='angular.js'></script>
+  </head>
+  <body>
+    <div ng-init="people=[{name: 'Tom', city:'Groton'}, {name: 'Mike',
+    city: 'Tewksbury'}, {name: 'Joe', city: 'Derry'}, {name: 'Ed',city:'Portland'}]">
+      <h3>Iterating through data with ng-repeat</h3>
+      <ul>
+        <li ng-repeat="person in people">{{person.name}} lives in {{person.city}}</li>
+      </ul>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+        <tr ng-repeat="person in people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.city}}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
