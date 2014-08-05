@@ -86,22 +86,38 @@ Some Expressions:
 
 #### Data Binding
 
-``{{ name }}`` Data binding syntax.
+* Templates consist of the raw HTML and Angular directives.
+* Views are generated from a Templates in Angular. This is what is shown in the browser.
 
-Previously, we used an control oriented approach to handling changes to elements, controls, on the page. We attached javascript handlers that would process these change _events_. 
+#####Data Binding in Classical Template Systems
+  Most templating systems bind data in only one direction: they merge template and model components together into a view. After the merge occurs, changes to the model or related sections of the view are NOT automatically reflected in the view. Worse, any changes that the user makes to the view are not reflected in the model. This means that the developer has to write code that constantly syncs the view with the model and the model with the view.
+
+#####One Way Data Binding
+![One Way Data Binding](oneway.png)
+
+
+#####Data Binding in Angular Templates
+
+Angular templates work differently. First the template (which is the uncompiled HTML along with any additional markup or directives) is compiled on the browser. The compilation step produces a live view. Any changes to the view are immediately reflected in the model, and any changes in the model are propagated to the view. The model is the single-source-of-truth for the application state, greatly simplifying the programming model for the developer. You can think of the view as simply an instant projection of your model.
+
+Because the view is just a projection of the model, the controller is completely separated from the view and unaware of it. This makes testing a snap because it is easy to test your controller in isolation without the view and the related DOM/browser dependency.
+
+#####Two-Way Data Binding
+![Two-Way Data Binding](twoway.png)
+
+
+Previously, we used an control oriented approach to handling changes to elements, controls (input fields, ...), on the page. We attached javascript handlers that would process these change _events_. 
 
 With automatic data binding that Angular provides there is no need for all this code. We just _bind_ to the data we're interested in and all places that use that data in the page will change. 
 
 ## Lab 1
-
-Add input fields for email and age that have bindings to attributes. Show these attributes using expressions.
+Create a template file, directives_email_age.html, that is like the above but it will add input fields for email and age that have bindings to attributes. Show these attributes using expressions.
 
 ## Demo
 
-
 ### ng-hide, ng-click directives.
 
-Lets please HTML validators and use _data-ng-_ directives.
+Lets please the HTML validators and use _data-ng-_ directives.
 
 __Create a file directives2.html.__
 
@@ -175,7 +191,7 @@ This will create an object literal, data, that is seen in the view. The data.nam
 
 ## Lab 2
 
-Change the _"data"__ object literal so that:  
+Change the _data_ object literal so that:  
 * Input fields are hidden.  
 * User is logged in.  
 
@@ -224,8 +240,8 @@ __Create a file directives_repeat.html.__
 Here we are repeating a list element and a table row for each person in the people Array.
 
 
-## Lab 
-Create  a list of products and generate a table for each product. 
+## Lab 3
+Create  a list of songs, songs have a title, artist, duration, released (boolean) and price. Show only the songs that are released unless you check a box to show all songs.
 
 ## Demo
 
@@ -233,8 +249,7 @@ Create  a list of products and generate a table for each product.
 
 Filters can be used to format data, convert it to json, limit the number of items to show, upcase or lower case a string or order data in a collection.
 
-
-
+TBD
 
 ## Documentation
 
