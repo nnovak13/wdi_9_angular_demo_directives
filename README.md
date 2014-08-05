@@ -249,13 +249,103 @@ Create  a list of songs, songs have a title, artist, duration, released (boolean
 
 Filters can be used to format data, convert it to json, limit the number of items to show, upcase or lower case a string or order data in a collection.
 
-TBD
+
+###### orderBy Filter
+
+__Create directives_orderby.html.__  
+
+
+```
+<html ng-app>
+  <head>
+    <script type='text/javascript' src='js/angular.js'></script>
+  </head>
+  <body ng-init="customers=[{joined: '2000-12-02', name:'John', city:'Chandler', orderTotal: 9.9956}, {joined: '1965-01-25',name:'Zed', city:'Las Vegas', orderTotal: 19.99},{joined: '1944-06-15',name:'Tina', city:'New York', orderTotal:44.99}, {joined: '1995-03-28',name:'Dave', city:'Seattle', orderTotal:101.50}]">
+    <h3>Customers</h3>
+    Filter: <input type="text" ng-model="customerFilter.name"/>
+    <br/>
+    <br/>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Order Total</th>
+        <th>Joined</th>
+      </tr>
+      <tr ng-repeat="cust in customers | orderBy:'name'">
+        <td>{{ cust.name }}</td>
+        <td>{{ cust.city}}</td>
+        <td>{{ cust.orderTotal | currency }}</td>
+        <td>{{ cust.joined | date}}</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+```
+
+* Order By the name property.
+     `` <tr ng-repeat="cust in customers | orderBy:'name'">`` 
+
+
+* Can chain filters 
+     `` <tr ng-repeat="cust in customers | orderBy:'name' | orderBy:'city' ">``
+
+* Filter by the name property.  
+
+		Filter: <input type="text" ng-model="customerFilter.name"/>
+      	...
+       	<tr ng-repeat="cust in customers | filter: customerFilter | orderBy:'name'">		
+
+     
+__Create directives_last.html.__
+
+```
+<!document html>
+<html ng-app>
+  <head>
+    <script type='text/javascript' src='js/angular.js'></script>
+  </head>
+  <body ng-init="customers=[{joined: '2000-12-02', name:'John', city:'Chandler', orderTotal: 9.9956}, {joined: '1965-01-25',name:'Zed', city:'Las Vegas', orderTotal: 19.99},{joined: '1944-06-15',name:'Tina', city:'New York', orderTotal:44.99}, {joined: '1995-03-28',name:'Dave', city:'Seattle', orderTotal:101.50}]">
+    <h3>Customers</h3>
+    Filter: <input type="text" ng-model="customerFilter.name"/>
+    <br/>
+    <br/>
+    <table>
+      <tr>
+        <th ng-click="sortBy='name';reverse=!reverse">Name</th>
+        <th ng-click="sortBy='city';reverse=!reverse">City</th>
+        <th ng-click="sortBy='orderTotal';reverse=!reverse">Order Total</th>
+        <th ng-click="sortBy='joined';reverse=!reverse">Joined</th>
+      </tr>
+      <tr ng-repeat="cust in customers | filter: customerFilter | orderBy:sortBy:reverse">
+        <!-- <tr ng-repeat="cust in customers"> -->
+        <td>{{ cust.name }}</td>
+        <td>{{ cust.city}}</td>
+        <td>{{ cust.orderTotal | currency }}</td>
+        <td>{{ cust.joined | date}}</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+```
+
+* Create a model customFilter.name that will use the contents of the input field as a filter.
+* Create click handlers for each column. It will sort each column in reverse order.
+* Filter the list of customers using the filter directive and the customerFilter model.
+
+## Lab 4
+
+Create a set of songs, like in the last Lab. And use each of the [Angular filters](https://docs.angularjs.org/api/ng/filter) to display these songs. 
 
 ## Documentation
 
 [AngularJS](https://angularjs.org/)
 
 [API Documentation](https://docs.angularjs.org/api)
+
+[Angular Filters](https://docs.angularjs.org/api/ng/filter)
 
 This is like the $.ajax in JQuery.  
 [Ajax HTTP Service](https://docs.angularjs.org/api/ng/service/$http) 
