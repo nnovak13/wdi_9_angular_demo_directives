@@ -332,8 +332,10 @@ __Create directives_last.html.__
 ```
 
 * Create a model customFilter.name that will use the contents of the input field as a filter.
-* Create click handlers for each column. It will sort each column in reverse order.
-* Filter the list of customers using the filter directive and the customerFilter model.
+* Create click handlers for each column.
+* Each click handler will: 
+	* Set the sortBy property used in the orderBy filter.
+	* Toggle the reverse property used in the orderBy filter.
 
 ## Lab 4
 
