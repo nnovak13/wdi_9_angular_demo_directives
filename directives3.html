@@ -1,0 +1,22 @@
+<!doctype html>
+<html data-ng-app>
+  <head>
+    <title>More on Directives</title>
+    <link href='css/styles.css' rel="stylesheet" type='text/css'/>
+    <script type='text/javascript' src='js/angular.js'></script>
+  </head>
+  <!-- Set the initial model property, data.    -->
+  <body data-ng-init="data={name:'James', isVisible: true, loggedIn: false,   status: 'red'}">
+    <div data-ng-switch on="data.loggedIn">
+      <div data-ng-switch-when="true">
+        Welcome {{data.name}}
+      </div>
+      <div data-ng-switch-default data-ng-class="data.status">Login</div>
+    </div>
+    <br/>
+    <div data-ng-show="data.isVisible">
+      Name: <input type='text' data-ng-model="data.name" />
+      {{ data.name }}
+    </div>
+  </body>
+</html>

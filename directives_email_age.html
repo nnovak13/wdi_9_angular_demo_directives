@@ -1,0 +1,22 @@
+<!doctype html>
+ <!-- 1. ng-app -->
+ <html ng-app>
+  <head>
+    <!-- 2. angular javascript -->
+    <script type="text/javascript" src='js/angular.js'>
+    </script>
+  </head>
+  <body>
+    <h1>First Angular View<h1>
+    <!-- 3. ng-model -->
+    <input type='text' ng-model='name' placeholder="Enter name"></input>
+        <!-- 4. {{ Data Binding Expresssion}} -->
+        <p> Name's value is: {{"Old Man " + name}}</p>
+    <input type='text' ng-model='age' placeholder="Enter age"></input>
+        <!-- 4. {{ Data Binding Expresssion}} -->
+        <p> Age's value is: {{age}}</p>
+    <input type='text' ng-model='email' placeholder="Enter email"></input>
+        <!-- 4. {{ Data Binding Expresssion}} -->
+        <p> Email's value is: {{email}}</p>
+  </body>
+ </html>

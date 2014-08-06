@@ -1,0 +1,30 @@
+<!-- Create a list of songs, songs have a title, artist, duration, released (boolean) and price. Show only the songs that are released unless you check a box to show all songs. -->
+
+<!document html>
+<html data-ng-app>
+  <head>
+    <script type='text/javascript' src='js/angular.js'></script>
+  </head>
+  <body>
+      <div ng-init="data={songs: [{title: 'Genesis', artist: 'Justice', duration: 240, price: 0.99, isReleased: true}, {title: 'Unheard', artist: 'Justice', duration: 276, price: 1.99, isReleased: false}, {title: 'Flutes', artist: 'Hot Chip', duration: 436, price: 0.99, isReleased: true}, {title: '2014 Demo', artist: 'Hot Chip', duration: 379, price: 1.99, isReleased: false}], showAll: false}">
+         <h3>Iterating through songs with ng-repeat</h3>
+      <table>
+        <tr>
+          <th>Artist</th>
+          <th>Title</th>
+          <th>Duration(in seconds)</th>
+          <th>Price</th>
+        </tr>
+        <tr ng-repeat="song in data.songs" ng-show="song.isReleased || data.showAll">
+          <td>{{ song.artist }}</td>
+          <td>{{ song.title }}</td>
+          <td>{{ song.duration }}</td>
+          <td>{{ song.price }}</td>
+        </tr>
+      </table>
+      Show all songs: <input type='checkbox' ng-model="data.showAll"></input>
+
+
+
+  </body>
+</html>
